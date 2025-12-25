@@ -5,33 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>USAHADULU.COM | Digital Creative Services</title>
-    <meta name="description" content="Jasa Desain Grafis Underground, Logo, Apparel, Motion Graphic dan Web Invitation di Dumai. Estetika Streetwear & Dark Arts.">
-    <meta name="keywords" content="Desain Grafis Dumai, Jasa Logo Metal, Streetwear Design, Web Undangan, Video Editing, Magos Streetwear, Jasa Desain Kaos">
+    <meta name="description" content="Jasa Desain Grafis Underground, Logo, Apparel, Motion Graphic dan Web Invitation di Dumai.">
     <meta name="author" content="Fajri Salam">
     <meta name="theme-color" content="#000000">
-    
+
     <meta property="og:title" content="USAHADULU.COM - Digital Creative Services">
-    <meta property="og:description" content="Visual Solution for Underground & Streetwear Brands.">
     <meta property="og:image" content="img/logo_web.png">
-    <meta property="og:type" content="website">
-
+    
     <link rel="icon" type="image/png" href="img/logo_web.png">
-    <link rel="apple-touch-icon" href="img/logo_web.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="cursor"></div>
 
     <div id="preloader">
-        <img src="img/logo_web.png" alt="Loading..." class="loader-logo">
+        <img src="img/logo_ambigram.png" alt="Loading..." class="loader-logo">
     </div>
 
     <a href="#" id="waFloatBtn" target="_blank" class="float-wa hover-target">
@@ -41,7 +35,7 @@
     <header id="mainHeader">
         <div class="header-left">
             <div class="brand-logo hover-target">
-                <img src="img/logo_web.png" alt="USAHADULU.COM">
+                <img id="headerLogoImg" src="img/logo_web.png" alt="USAHADULU.COM">
             </div>
         </div>
 
@@ -60,12 +54,10 @@
 
     <div class="nav-overlay" id="navOverlay">
         <ul class="menu-list">
-            
             <li class="menu-item" id="serviceMenu">
                 <div class="menu-title hover-target" onclick="toggleAccordion('serviceMenu')" data-i18n="nav_services">SERVICES</div>
                 <div class="accordion-content">
-                    <ul id="dynamicServiceList">
-                        </ul>
+                    <ul id="dynamicServiceList"></ul>
                 </div>
             </li>
 
@@ -91,19 +83,17 @@
             <li class="menu-item">
                 <div class="menu-title hover-target" onclick="openAboutModal()" data-i18n="nav_about">ABOUT</div>
             </li>
-
         </ul>
     </div>
 
     <section class="hero">
-        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1920&auto=format&fit=crop');"></div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1920&auto=format&fit=crop');"></div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1920&auto=format&fit=crop');"></div>
+        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1920');"></div>
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1920');"></div>
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1920');"></div>
         
         <div class="hero-content">
             <img src="img/logo_web.png" alt="USAHADULU LOGO" class="hero-logo-img">
             <p>EST. 2023 // DUMAI CITY</p>
-            
             <button class="cta-btn hover-target" onclick="openServicesFromHero()" data-i18n="hero_cta">START PROJECT</button>
         </div>
     </section>
@@ -125,8 +115,7 @@
         <div class="modal-content">
             <div class="close-modal hover-target" onclick="closeModal('aboutModal')">&times;</div>
             <h3 data-i18n="about_title">ABOUT US</h3>
-            <p id="aboutText" style="line-height: 1.6; color: #ccc; margin-top: 15px;">
-                </p>
+            <p id="aboutText" style="line-height: 1.6; color: #ccc; margin-top: 15px;"></p>
             <br>
             <p style="color: #666; font-size: 12px;">DUMAI, RIAU, INDONESIA.</p>
         </div>
@@ -136,28 +125,22 @@
         <div class="modal-content portfolio-content">
             <div class="close-modal hover-target" onclick="closeModal('portfolioModal')">&times;</div>
             <div class="modal-title" data-i18n="portfolio_title">PORTFOLIO</div>
-            
-            <div class="filter-container" id="filterContainer">
-                </div>
-
+            <div class="filter-container" id="filterContainer"></div>
             <div class="portfolio-scroll-area">
-                <div class="portfolio-grid" id="portfolioGrid">
-                    </div>
+                <div class="portfolio-grid" id="portfolioGrid"></div>
             </div>
         </div>
     </div>
 
     <div class="modal" id="lightboxModal">
         <div class="close-modal hover-target" onclick="closeLightboxOnly()">&times;</div>
-        
         <div class="modal-content-lightbox">
             <div id="lightboxTitle">DESIGN TITLE</div>
-            
             <img src="img/logo_web.png" alt="Loading..." id="lightboxLoader" class="loader-logo">
             <img id="lightboxImg" src="" alt="Full View">
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
