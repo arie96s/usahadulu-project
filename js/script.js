@@ -1,10 +1,11 @@
 // --- 0. KONFIGURASI UMUM ---
 const appConfig = {
-    useLocalImages: false,  // false = pakai Unsplash, true = pakai folder 'img/'
-    localPath: 'img/',      // Nama folder tempat menyimpan gambar
+    // SAYA UBAH JADI TRUE AGAR BACA DARI FOLDER LOKAL 'img/'
+    useLocalImages: true, 
+    localPath: 'img/',
 };
 
-// --- 1. DATA STRUCTURE (JSON) ---
+// --- 1. DATA STRUCTURE ---
 const siteData = {
     currentLang: 'id',
     translations: {
@@ -19,7 +20,8 @@ const siteData = {
             portfolio_title: "KARYA KAMI",
             order_prefix: "Halo Admin USAHADULU, saya tertarik order ",
             filter_all: "SEMUA",
-            price_start: "Mulai"
+            price_start: "Mulai",
+            btn_order_now: "PESAN SEKARANG"
         },
         en: {
             nav_services: "SERVICES",
@@ -32,45 +34,108 @@ const siteData = {
             portfolio_title: "OUR WORK",
             order_prefix: "Hello Admin USAHADULU, I'm interested in ordering ",
             filter_all: "ALL",
-            price_start: "Start from"
+            price_start: "Start from",
+            btn_order_now: "ORDER NOW"
         }
     },
     services: [
-        { id: 'logo', name_id: "LOGO & BRANDING", name_en: "LOGO & BRANDING", price: "IDR 250K" },
-        { id: 'apparel', name_id: "DESAIN KAOS/APPAREL", name_en: "APPAREL/T-SHIRT DESIGN", price: "IDR 150K" },
-        { id: 'flyer', name_id: "DESAIN POSTER/FLYER", name_en: "FLYER/POSTER DESIGN", price: "IDR 100K" },
-        { id: 'web', name_id: "WEB UNDANGAN DIGITAL", name_en: "WEB INVITATION", price: "IDR 300K" },
-        { id: 'video', name_id: "VIDEO & MOTION GRAPHIC", name_en: "VIDEO & MOTION GRAPHIC", price: "IDR 200K" }
+        { 
+            id: 'logo', 
+            name_id: "LOGO & BRANDING", 
+            name_en: "LOGO & BRANDING", 
+            price: "IDR 250K",
+            desc_id: "Pembuatan identitas visual yang kuat. Cocok untuk brand baru yang ingin tampil beda.",
+            desc_en: "Strong visual identity creation. Perfect for new brands wanting to stand out.",
+            packages: [
+                { item: "Basic (Logo Only)", price: "250K" },
+                { item: "Standard (Logo + Mockup)", price: "450K" },
+                { item: "Pro (Full Branding Kit)", price: "800K" },
+                { item: "Re-drawing Vector", price: "150K" }
+            ]
+        },
+        { 
+            id: 'apparel', 
+            name_id: "DESAIN KAOS/APPAREL", 
+            name_en: "APPAREL/T-SHIRT DESIGN", 
+            price: "IDR 150K",
+            desc_id: "Desain ilustrasi untuk merchandise, kaos band, streetwear, dan clothing line.",
+            desc_en: "Illustration design for merchandise, band tees, streetwear, and clothing lines.",
+            packages: [
+                { item: "Typography Design", price: "150K" },
+                { item: "Simple Illustration", price: "300K" },
+                { item: "Detailed / Metal Artwork", price: "600K" },
+                { item: "Full Merch Pack (F/B/S)", price: "850K" }
+            ]
+        },
+        { 
+            id: 'flyer', 
+            name_id: "DESAIN POSTER/FLYER", 
+            name_en: "FLYER/POSTER DESIGN", 
+            price: "IDR 100K",
+            desc_id: "Media promosi digital untuk event, gig musik, atau promo produk di sosial media.",
+            desc_en: "Digital promotional media for events, music gigs, or product promos on social media.",
+            packages: [
+                { item: "Instagram Feed/Story", price: "100K" },
+                { item: "Event Poster A3", price: "200K" },
+                { item: "Menu Design (1 Page)", price: "250K" },
+                { item: "Banner / Billboard", price: "300K" }
+            ]
+        },
+        { 
+            id: 'web', 
+            name_id: "WEB UNDANGAN DIGITAL", 
+            name_en: "WEB INVITATION", 
+            price: "IDR 300K",
+            desc_id: "Undangan berbasis website yang elegan, modern, dan mudah disebarkan.",
+            desc_en: "Elegant, modern, and easily shareable website-based invitations.",
+            packages: [
+                { item: "Basic Template", price: "300K" },
+                { item: "Custom Theme", price: "600K" },
+                { item: "Exclusive Domain (.com)", price: "+200K" },
+                { item: "Prioritas Pengerjaan", price: "+100K" }
+            ]
+        },
+        { 
+            id: 'video', 
+            name_id: "VIDEO & MOTION GRAPHIC", 
+            name_en: "VIDEO & MOTION GRAPHIC", 
+            price: "IDR 200K",
+            desc_id: "Editing video kreatif untuk Reels, TikTok, atau intro YouTube yang dinamis.",
+            desc_en: "Creative video editing for Reels, TikTok, or dynamic YouTube intros.",
+            packages: [
+                { item: "Simple Cut/Edit (1 min)", price: "200K" },
+                { item: "Motion Graphic Intro", price: "350K" },
+                { item: "Lyric Video", price: "500K" },
+                { item: "Teaser Event", price: "400K" }
+            ]
+        }
     ],
     
-    // --- PORTFOLIO DATA ---
+    // --- EDIT PORTOFOLIO DISINI ---
+    // Cukup ganti 'fileName' dengan nama file yang ada di folder 'img/'
     portfolio: [
-        { category: 'logo', title: 'NEON CYBERPUNK LOGO', fileName: 'logo_cyberpunk.jpg', demoUrl: 'https://images.unsplash.com/photo-1571120038865-c35012e1284a?auto=format&fit=crop&w=500&q=60' },
-        { category: 'apparel', title: 'MAGOS STREETWEAR V1', fileName: 'magos_v1.jpg', demoUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=60' },
-        { category: 'flyer', title: 'METAL BAND POSTER', fileName: 'poster_metal.jpg', demoUrl: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=500&q=60' },
-        { category: 'art', title: 'DARK ARTS ILLUSTRATION', fileName: 'dark_art.jpg', demoUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=60' },
-        { category: 'logo', title: 'VINTAGE TYPOGRAPHY', fileName: 'logo_vintage.jpg', demoUrl: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=500&q=60' },
-        { category: 'web', title: 'RETRO WAVE WEBSITE', fileName: 'web_retro.jpg', demoUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=500&q=60' },
-        { category: 'video', title: 'URBAN VLOG INTRO', fileName: 'video_vlog.jpg', demoUrl: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=500&q=60' },
-        { category: 'flyer', title: 'EVENT FLYER DUMAI', fileName: 'flyer_dumai.jpg', demoUrl: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=500&q=60' },
-        { category: 'apparel', title: 'GOTHIC MERCHANDISE', fileName: 'merch_gothic.jpg', demoUrl: 'https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?auto=format&fit=crop&w=500&q=60' },
-        { category: 'video', title: 'ABSTRACT MOTION', fileName: 'video_abstract.jpg', demoUrl: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=500&q=60' },
-        { category: 'web', title: 'WEDDING INVITATION', fileName: 'web_wedding.jpg', demoUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=60' }
+        { category: 'logo', title: 'NEON CYBERPUNK LOGO', fileName: 'logo_cyberpunk.jpg' },
+        { category: 'apparel', title: 'MAGOS STREETWEAR V1', fileName: 'magos_v1.jpg' },
+        { category: 'flyer', title: 'METAL BAND POSTER', fileName: 'poster_metal.jpg' },
+        { category: 'art', title: 'DARK ARTS ILLUSTRATION', fileName: 'dark_art.jpg' },
+        { category: 'logo', title: 'VINTAGE TYPOGRAPHY', fileName: 'logo_vintage.jpg' },
+        { category: 'web', title: 'RETRO WAVE WEBSITE', fileName: 'web_retro.jpg' },
+        { category: 'video', title: 'URBAN VLOG INTRO', fileName: 'video_vlog.jpg' },
+        { category: 'flyer', title: 'EVENT FLYER DUMAI', fileName: 'flyer_dumai.jpg' },
+        { category: 'apparel', title: 'GOTHIC MERCHANDISE', fileName: 'merch_gothic.jpg' },
+        { category: 'video', title: 'ABSTRACT MOTION', fileName: 'video_abstract.jpg' },
+        { category: 'web', title: 'WEDDING INVITATION', fileName: 'web_wedding.jpg' }
     ],
     filters: ['logo', 'apparel', 'web', 'video', 'flyer']
 };
 
-// --- 2. INITIALIZATION & LANGUAGE LOGIC ---
+// --- 2. INITIALIZATION ---
 function initSite() {
     updateLanguageUI();
     renderServices();
     renderPortfolio('all');
     renderFilters();
-    
-    // Set Default WA Link
     updateWALinks();
-    
-    // Setup Links Close
     setupExternalLinks();
 }
 
@@ -80,8 +145,8 @@ function toggleLanguage() {
     toggleBtn.setAttribute('data-lang', siteData.currentLang);
     
     updateLanguageUI();
-    renderServices(); // Re-render services for lang change
-    renderFilters();  // Re-render filters (for "ALL" text)
+    renderServices(); 
+    renderFilters(); 
     updateWALinks();
 }
 
@@ -89,22 +154,17 @@ function updateLanguageUI() {
     const lang = siteData.currentLang;
     const t = siteData.translations[lang];
 
-    // Update text elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (t[key]) el.innerHTML = t[key]; // innerHTML allows bold tags
+        if (t[key]) el.innerHTML = t[key];
     });
-
-    // Update specific static content
     document.getElementById('aboutText').innerHTML = t.about_desc;
 }
 
 function updateWALinks() {
     const lang = siteData.currentLang;
-    const t = siteData.translations[lang];
     const phone = "6282283687565";
     const msg = encodeURIComponent(lang === 'id' ? "Halo, saya ingin bertanya jasa desain." : "Hello, I want to ask about design services.");
-    
     document.getElementById('waFloatBtn').href = `https://wa.me/${phone}?text=${msg}`;
 }
 
@@ -113,20 +173,70 @@ function renderServices() {
     const container = document.getElementById('dynamicServiceList');
     container.innerHTML = '';
     const lang = siteData.currentLang;
+    const t = siteData.translations[lang];
 
     siteData.services.forEach(svc => {
         const name = lang === 'id' ? svc.name_id : svc.name_en;
+        const desc = lang === 'id' ? svc.desc_id : svc.desc_en;
+        
+        let tableRows = '';
+        svc.packages.forEach(pkg => {
+            tableRows += `<tr><td>${pkg.item}</td><td>${pkg.price}</td></tr>`;
+        });
+
         const li = document.createElement('li');
-        li.className = 'service-list-item hover-target';
-        li.onclick = () => openOrderPopup(name);
+        li.className = 'service-wrapper';
         
         li.innerHTML = `
-            <span class="service-name">${name}</span>
-            <span class="service-price">${siteData.translations[lang].price_start} ${svc.price}</span>
+            <div class="service-header hover-target" onclick="toggleServiceItem(this)">
+                <span class="service-name-main">${name}</span>
+                <span class="service-icon-state">▼</span>
+            </div>
+            <div class="service-body">
+                <p class="service-desc">${desc}</p>
+                <table class="price-table">
+                    ${tableRows}
+                </table>
+                <div class="service-btn-wrapper">
+                    <button class="service-action-btn hover-target" onclick="openOrderPopup('${name}')">${t.btn_order_now}</button>
+                </div>
+            </div>
         `;
         container.appendChild(li);
     });
     bindHoverEvents();
+}
+
+function toggleServiceItem(headerElement) {
+    headerElement.classList.toggle('active');
+    const body = headerElement.nextElementSibling;
+    
+    if (headerElement.classList.contains('active')) {
+        body.style.maxHeight = body.scrollHeight + "px";
+    } else {
+        body.style.maxHeight = null;
+    }
+
+    updateParentAccordion();
+    setTimeout(updateParentAccordion, 600);
+}
+
+function updateParentAccordion() {
+    const parentContent = document.getElementById('serviceMenu').querySelector('.accordion-content');
+    if (parentContent.style.maxHeight && parentContent.style.maxHeight !== '0px') {
+        parentContent.style.maxHeight = parentContent.scrollHeight + "px";
+    }
+}
+
+function toggleAccordion(id) {
+    const item = document.getElementById(id);
+    const content = item.querySelector('.accordion-content');
+    if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+    } else {
+        document.querySelectorAll('.accordion-content').forEach(el => el.style.maxHeight = null);
+        content.style.maxHeight = content.scrollHeight + "px";
+    }
 }
 
 // --- 4. PORTFOLIO & FILTERING LOGIC ---
@@ -136,14 +246,12 @@ function renderFilters() {
     const lang = siteData.currentLang;
     const t = siteData.translations[lang];
 
-    // "ALL" Button
     const allBtn = document.createElement('button');
     allBtn.className = 'filter-btn hover-target active';
     allBtn.innerText = t.filter_all;
     allBtn.onclick = (e) => handleFilterClick(e, 'all');
     container.appendChild(allBtn);
 
-    // Dynamic Category Buttons
     siteData.filters.forEach(cat => {
         const btn = document.createElement('button');
         btn.className = 'filter-btn hover-target';
@@ -163,10 +271,7 @@ function handleFilterClick(e, category) {
 function renderPortfolio(filterCategory) {
     const grid = document.getElementById('portfolioGrid');
     grid.innerHTML = '';
-
-    const items = filterCategory === 'all' 
-        ? siteData.portfolio 
-        : siteData.portfolio.filter(item => item.category === filterCategory);
+    const items = filterCategory === 'all' ? siteData.portfolio : siteData.portfolio.filter(item => item.category === filterCategory);
 
     if (items.length === 0) {
         grid.innerHTML = '<p style="grid-column: 1/-1; text-align:center; color:#666;">No items found.</p>';
@@ -178,31 +283,30 @@ function renderPortfolio(filterCategory) {
         div.className = 'portfolio-item hover-target';
         div.style.animationDelay = `${index * 0.1}s`;
         
-        let finalSrc = "";
+        // LOGIC LOKAL IMAGE
+        let finalSrc = '';
         if (appConfig.useLocalImages) {
             finalSrc = appConfig.localPath + item.fileName;
         } else {
-            finalSrc = item.demoUrl;
+            // Fallback ke demoUrl jika config false (opsional)
+            finalSrc = item.demoUrl; 
         }
 
         div.onclick = () => openLightbox(finalSrc, item.title);
         
         div.innerHTML = `
-            <img src="${finalSrc}" alt="${item.title}">
+            <img src="${finalSrc}" alt="${item.title}" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x500?text=No+Image';">
             <div class="portfolio-tag">${item.category.toUpperCase()}</div>
         `;
         grid.appendChild(div);
     });
-
     bindHoverEvents();
 }
 
 // --- 5. INTERACTION & UTILS ---
-
-// Custom Cursor
 const cursor = document.getElementById('cursor');
 function bindHoverEvents() {
-    const hoverTargets = document.querySelectorAll('.hover-target, a, .menu-title, .close-modal, .order-btn, .page-num, .cta-btn, .float-wa, .portfolio-item, .lang-switch');
+    const hoverTargets = document.querySelectorAll('.hover-target, a, .menu-title, .close-modal, .order-btn, .service-action-btn, .page-num, .cta-btn, .float-wa, .portfolio-item, .lang-switch');
     hoverTargets.forEach(target => {
         target.removeEventListener('mouseenter', null); 
         target.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
@@ -214,48 +318,40 @@ document.addEventListener('mousemove', (e) => {
     cursor.style.top = e.clientY + 'px';
 });
 
-// Modals & Navigation
 const menuBtn = document.getElementById('menuBtn');
 const navOverlay = document.getElementById('navOverlay');
 const mainHeader = document.getElementById('mainHeader');
 
-// Toggle Menu Function
+// Logic Ganti Logo saat Toggle Menu
 function toggleMenu() {
     menuBtn.classList.toggle('active');
     navOverlay.classList.toggle('open');
     mainHeader.classList.toggle('menu-active');
-    
-    // Lock body scroll
     document.body.classList.toggle('no-scroll');
+
+    const logoImg = document.getElementById('headerLogoImg');
+    if (navOverlay.classList.contains('open')) {
+        // Pastikan file ini ada di folder img/
+        logoImg.src = 'img/logo_ambigram.png';
+    } else {
+        logoImg.src = 'img/logo_web.png';
+    }
 }
 
-// Close Menu Function
 function closeMenu() {
     menuBtn.classList.remove('active');
     navOverlay.classList.remove('open');
     mainHeader.classList.remove('menu-active');
     document.body.classList.remove('no-scroll');
+    document.getElementById('headerLogoImg').src = 'img/logo_web.png';
 }
 
 menuBtn.addEventListener('click', toggleMenu);
 
-// Close menu when clicking external links (e.g., Magos, IG)
 function setupExternalLinks() {
-    const links = document.querySelectorAll('.close-menu-link');
-    links.forEach(link => {
+    document.querySelectorAll('.close-menu-link').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
-}
-
-function toggleAccordion(id) {
-    const item = document.getElementById(id);
-    const content = item.querySelector('.accordion-content');
-    if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-    } else {
-        document.querySelectorAll('.accordion-content').forEach(el => el.style.maxHeight = null);
-        content.style.maxHeight = content.scrollHeight + "px";
-    }
 }
 
 function openOrderPopup(serviceName) {
@@ -266,22 +362,20 @@ function openOrderPopup(serviceName) {
     const message = encodeURIComponent(`${prefix}${serviceName}.`);
     document.getElementById('btnWA').href = `https://wa.me/6282283687565?text=${message}`;
     
-    closeMenu(); // Close menu first
+    closeMenu();
     document.getElementById('orderModal').classList.add('show');
 }
 
 function openPortfolioModal() {
-    // Reset to All when opening
     renderPortfolio('all');
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     document.querySelector('.filter-btn').classList.add('active');
-
-    closeMenu(); // Close menu first
+    closeMenu();
     document.getElementById('portfolioModal').classList.add('show');
 }
 
 function openAboutModal() {
-    closeMenu(); // Close menu first
+    closeMenu();
     document.getElementById('aboutModal').classList.add('show');
 }
 
@@ -291,14 +385,15 @@ function openServicesFromHero() {
     }
     const serviceItem = document.getElementById('serviceMenu');
     const content = serviceItem.querySelector('.accordion-content');
-    content.style.maxHeight = content.scrollHeight + "px";
+    if (!content.style.maxHeight) {
+        toggleAccordion('serviceMenu');
+    }
 }
 
 function closeModal(modalId) {
     document.getElementById(modalId).classList.remove('show');
 }
 
-// Lightbox
 function openLightbox(src, title) {
     const modal = document.getElementById('lightboxModal');
     const img = document.getElementById('lightboxImg');
@@ -310,25 +405,22 @@ function openLightbox(src, title) {
     img.style.display = 'none';
     loader.style.display = 'block';
 
-    let displaySrc = src;
-
-    if (!appConfig.useLocalImages && src.includes('unsplash')) {
-        displaySrc = src.replace('w=500', 'w=1600').replace('q=60', 'q=90');
-    } 
-
-    img.src = displaySrc;
-
+    // Karena pakai lokal, langsung src saja
+    img.src = src;
     img.onload = () => {
         loader.style.display = 'none'; 
         img.style.display = 'block';   
     };
+    img.onerror = () => {
+        loader.style.display = 'none';
+        alert("Gambar tidak ditemukan di folder img/. Pastikan nama file benar.");
+    }
 }
 
 function closeLightboxOnly() {
     document.getElementById('lightboxModal').classList.remove('show');
 }
 
-// Global Click to Close
 window.onclick = function(event) {
     if (event.target.classList.contains('modal')) {
         if (event.target.id === 'lightboxModal') {
@@ -339,7 +431,6 @@ window.onclick = function(event) {
     }
 }
 
-// Hero Slider
 const slides = document.querySelectorAll('.hero-slide');
 let currentSlide = 0;
 setInterval(() => {
@@ -348,11 +439,9 @@ setInterval(() => {
     slides[currentSlide].classList.add('active');
 }, 4000);
 
-// Preloader
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
     preloader.style.opacity = '0';
     preloader.style.visibility = 'hidden';
-    
     initSite();
 });
