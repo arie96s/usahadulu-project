@@ -7,32 +7,21 @@ const appConfig = {
 
 // --- 1. DATA STRUCTURE ---
 const siteData = {
-    currentLang: 'id', // Default bahasa
+    currentLang: 'id',
     translations: {
         id: {
-            // NAVIGASI
-            nav_services: "LAYANAN KAMI",
+            nav_services: "LAYANAN",
             nav_portfolio: "PORTOFOLIO",
-            nav_contact: "HUBUNGI KAMI",
-            nav_about: "TENTANG KAMI",
-            
-            // HERO SECTION
+            nav_contact: "KONTAK",
+            nav_about: "TENTANG",
             hero_cta: "MULAI PROYEK",
-            
-            // ABOUT SECTION
-            about_title: "SIAPA KAMI?",
-            about_desc: "<strong>USAHADULU.COM</strong> adalah entitas kreatif digital yang berbasis di Dumai. Kami fokus pada eksekusi visual dengan estetika <em>Underground</em>, <em>Streetwear</em>, dan <em>Dark Arts</em> yang fungsional untuk brand Anda.",
-            
-            // PORTFOLIO SECTION
-            portfolio_title: "KARYA TERBARU",
-            
-            // FILTERS & BUTTONS
+            about_title: "TENTANG KAMI",
+            about_desc: "<strong>USAHADULU.COM</strong> adalah entitas kreatif yang bergerak di bidang visual digital. Fokus pada estetika underground, streetwear, dark arts, dan desain fungsional. Kami berbasis di Dumai.",
+            portfolio_title: "KARYA KAMI",
+            order_prefix: "Halo Admin USAHADULU, saya tertarik order ",
             filter_all: "SEMUA",
-            price_start: "Mulai dari",
-            btn_order_now: "PESAN SEKARANG",
-            
-            // ORDER WA
-            order_prefix: "Halo Admin USAHADULU, saya tertarik untuk memesan jasa "
+            price_start: "Mulai",
+            btn_order_now: "PESAN SEKARANG"
         },
         en: {
             nav_services: "SERVICES",
@@ -43,10 +32,10 @@ const siteData = {
             about_title: "ABOUT US",
             about_desc: "<strong>USAHADULU.COM</strong> is a creative entity specializing in digital visuals. Focused on underground aesthetics, streetwear, dark arts, and functional design. Based in Dumai City.",
             portfolio_title: "OUR WORK",
+            order_prefix: "Hello Admin USAHADULU, I'm interested in ordering ",
             filter_all: "ALL",
             price_start: "Start from",
-            btn_order_now: "ORDER NOW",
-            order_prefix: "Hello Admin USAHADULU, I'm interested in ordering "
+            btn_order_now: "ORDER NOW"
         }
     },
     services: [
@@ -55,8 +44,7 @@ const siteData = {
             name_id: "LOGO & BRANDING", 
             name_en: "LOGO & BRANDING", 
             price: "IDR 250K",
-            // Terjemahan Deskripsi Logo
-            desc_id: "Perancangan identitas visual yang berkarakter kuat. Solusi tepat untuk brand baru yang ingin tampil beda dan mencolok.",
+            desc_id: "Pembuatan identitas visual yang kuat. Cocok untuk brand baru yang ingin tampil beda.",
             desc_en: "Strong visual identity creation. Perfect for new brands wanting to stand out.",
             packages: [
                 { item: "Basic (Logo Only)", price: "250K" },
@@ -67,11 +55,10 @@ const siteData = {
         },
         { 
             id: 'apparel', 
-            name_id: "DESAIN KAOS / APPAREL", 
+            name_id: "DESAIN KAOS/APPAREL", 
             name_en: "APPAREL/T-SHIRT DESIGN", 
             price: "IDR 150K",
-            // Terjemahan Deskripsi Apparel
-            desc_id: "Ilustrasi detail untuk merchandise, kaos band, streetwear, dan clothing line dengan gaya visual yang tajam.",
+            desc_id: "Desain ilustrasi untuk merchandise, kaos band, streetwear, dan clothing line.",
             desc_en: "Illustration design for merchandise, band tees, streetwear, and clothing lines.",
             packages: [
                 { item: "Typography Design", price: "150K" },
@@ -82,11 +69,10 @@ const siteData = {
         },
         { 
             id: 'flyer', 
-            name_id: "DESAIN POSTER / FLYER", 
+            name_id: "DESAIN POSTER/FLYER", 
             name_en: "FLYER/POSTER DESIGN", 
             price: "IDR 100K",
-            // Terjemahan Deskripsi Flyer
-            desc_id: "Media promosi digital untuk event, gig musik, atau materi promosi sosial media yang informatif namun tetap estetis.",
+            desc_id: "Media promosi digital untuk event, gig musik, atau promo produk di sosial media.",
             desc_en: "Digital promotional media for events, music gigs, or product promos on social media.",
             packages: [
                 { item: "Instagram Feed/Story", price: "100K" },
@@ -97,11 +83,10 @@ const siteData = {
         },
         { 
             id: 'web', 
-            name_id: "UNDANGAN DIGITAL (WEB)", 
+            name_id: "WEB UNDANGAN DIGITAL", 
             name_en: "WEB INVITATION", 
             price: "IDR 300K",
-            // Terjemahan Deskripsi Web
-            desc_id: "Undangan berbasis website yang elegan, modern, dan praktis untuk disebarkan tanpa batasan jarak.",
+            desc_id: "Undangan berbasis website yang elegan, modern, dan mudah disebarkan.",
             desc_en: "Elegant, modern, and easily shareable website-based invitations.",
             packages: [
                 { item: "Basic Template", price: "300K" },
@@ -115,8 +100,7 @@ const siteData = {
             name_id: "VIDEO & MOTION GRAPHIC", 
             name_en: "VIDEO & MOTION GRAPHIC", 
             price: "IDR 200K",
-            // Terjemahan Deskripsi Video
-            desc_id: "Editing video kreatif untuk kebutuhan Reels, TikTok, atau Intro YouTube yang dinamis dan menarik atensi.",
+            desc_id: "Editing video kreatif untuk Reels, TikTok, atau intro YouTube yang dinamis.",
             desc_en: "Creative video editing for Reels, TikTok, or dynamic YouTube intros.",
             packages: [
                 { item: "Simple Cut/Edit (1 min)", price: "200K" },
@@ -127,7 +111,8 @@ const siteData = {
         }
     ],
     
-    // BAGIAN PORTFOLIO (TIDAK PERLU DIUBAH KECUALI NAMA GAMBAR)
+    // --- EDIT PORTOFOLIO DISINI ---
+    // Cukup ganti 'fileName' dengan nama file yang ada di folder 'img/'
     portfolio: [
         { category: 'logo', title: 'NEON CYBERPUNK LOGO', fileName: 'logo_cyberpunk.jpg' },
         { category: 'apparel', title: 'MAGOS STREETWEAR V1', fileName: 'magos_v1.jpg' },
